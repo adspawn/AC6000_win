@@ -12,6 +12,10 @@ if not exist "%PYTHON%" (
     exit /b 1
 )
 
+echo === Checking stale bind_init.py ===
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0stop_stale_bind.ps1"
+echo.
+
 if /i "%~1"=="scan" goto do_scan
 if /i "%~1"=="speak" goto do_speak
 goto do_listen

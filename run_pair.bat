@@ -9,6 +9,9 @@ if not exist "%PYTHON%" (
     pause
     exit /b 1
 )
+echo === Checking stale bind_init.py ===
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0stop_stale_bind.ps1"
+echo.
 echo === Listen with Windows pairing (--pair) ===
 "%PYTHON%" bind_init.py --listen-forever --pair
 if errorlevel 1 pause

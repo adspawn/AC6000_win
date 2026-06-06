@@ -30,6 +30,10 @@ if errorlevel 1 (
     exit /b 1
 )
 
+echo === Checking stale bind_init.py ===
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0stop_stale_bind.ps1"
+echo.
+
 echo.
 echo === Listen with speech. Stop: Ctrl+C ===
 echo Speed is spoken when you shoot BB.
